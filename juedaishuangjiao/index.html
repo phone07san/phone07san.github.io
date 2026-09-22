@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="绝代双骄细雨楼 - 江湖武侠文化深度解析与同人创作展示平台。收录细雨楼历史渊源、主要人物关系、经典战役回顾及武侠爱好者互动社区。">
+    <meta name="keywords" content="绝代双骄细雨楼, 江湖, 武侠, 细雨楼, 江小鱼, 花无缺, 江湖文化, 武侠同人">
+    <title>绝代双骄细雨楼-江湖武侠文化解析与同人社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --gold-color: #d4ac0d;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--gold-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--gold-color);
+        }
+
+        .header-actions button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .header-actions button:hover {
+            background-color: #a93226;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/jianghu_hero/1920/600') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--gold-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold-color);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Characters Grid */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .character-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .char-img {
+            height: 200px;
+            background-color: #ddd;
+            overflow: hidden;
+        }
+
+        .char-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .char-info {
+            padding: 20px;
+        }
+
+        .char-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .char-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Content List / Articles */
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .content-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .content-thumb {
+            width: 120px;
+            height: 80px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .content-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-details {
+            flex: 1;
+        }
+
+        .content-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .content-details p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background-color: #eee;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* Sidebar & Layout for Articles */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .sidebar {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            border-bottom: 2px solid var(--gold-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .sidebar-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--gold-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ddd;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid, .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .content-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .content-thumb {
+                width: 100%;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>⚔</span> 绝代双骄细雨楼
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">细雨楼</a></li>
+                    <li><a href="#characters">人物志</a></li>
+                    <li><a href="#articles">江湖资讯</a></li>
+                    <li><a href="#community">同人社区</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>加入江湖</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>细雨楼：江湖的温柔与刀光</h1>
+                <p>深入解析《绝代双骄》中细雨楼这一传奇组织的历史渊源、人物关系与江湖地位。这里是侠客的归宿，也是纷争的中心。</p>
+                <div class="hero-buttons">
+                    <a href="#characters" class="btn btn-primary">探索人物</a>
+                    <a href="#about" class="btn btn-outline">了解更多</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>细雨楼简介</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>江南第一楼，武林中屹立不倒的传奇</h3>
+                        <p>细雨楼，作为《绝代双骄》中极具代表性的江湖势力，常年盘踞在江南一带。其楼主苏樱与楼主李沉舟的传奇故事，贯穿了整部作品的情感主线。</p>
+                        <p>细雨楼并非单纯的帮派，它更像是一个维护江南秩序、保护弱小侠客的庇护所。在“移花宫”与“恶人谷”的对峙中，细雨楼始终保持着独特的立场，既不依附权贵，也不盲目卷入无谓的杀戮。楼中高手如云，剑法与内功皆属上乘，是江湖中人公认的“江南第一楼”。</p>
+                        <p>从苏樱的智慧与权谋，到李沉舟的霸气与担当，细雨楼见证了无数爱恨情仇。它不仅代表了江湖中的一种理想主义，也象征着在乱世中依然坚守的道义与正义。</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/su_ying_biliang/600/400" alt="细雨楼苏樱与李沉舟概念图">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心人物志</h2>
+                </div>
+                <div class="character-grid">
+                    <!-- Character 1 -->
+                    <article class="character-card">
+                        <div class="char-img">
+                            <img src="https://picsum.photos/seed/li_chenzhou/400/300" alt="李沉舟">
+                        </div>
+                        <div class="char-info">
+                            <h3>李沉舟</h3>
+                            <p>细雨楼主，武功盖世，性格豪迈不羁。他一生追求武学巅峰与江湖秩序，是无数英雄敬仰的领袖。</p>
+                        </div>
+                    </article>
+
+                    <!-- Character 2 -->
+                    <article class="character-card">
+                        <div class="char-img">
+                            <img src="https://picsum.photos/seed/su_ying/400/300" alt="苏樱">
+                        </div>
+                        <div class="char-info">
+                            <h3>苏樱</h3>
+                            <p>细雨楼主母，医术精湛，智计百出。她不仅是李沉舟的爱人，更是细雨楼运筹帷幄的关键人物。</p>
+                        </div>
+                    </article>
+
+                    <!-- Character 3 -->
+                    <article class="character-card">
+                        <div class="char-img">
+                            <img src="https://picsum.photos/seed/shen_wu/400/300" alt="沈浪">
+                        </div>
+                        <div class="char-info">
+                            <h3>沈浪</h3>
+                            <p>虽然常驻他处，但与细雨楼渊源颇深。其淡泊名利的性格与细雨楼的江湖情怀有着精神上的共鸣。</p>
+                        </div>
+                    </article>
+
+                    <!-- Character 4 -->
+                    <article class="character-card">
+                        <div class="char-img">
+                            <img src="https://picsum.photos/seed/tian_bao/400/300" alt="田思思">
+                        </div>
+                        <div class="char-info">
+                            <h3>田思思</h3>
+                            <p>细雨楼中常客，性格活泼可爱。她的天真烂漫为这个充满杀伐的江湖增添了一抹亮色。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content & Sidebar -->
+        <section id="articles">
+            <div class="container">
+                <div class="main-content">
+                    <!-- Articles List -->
+                    <div class="content-area">
+                        <div class="section-title">
+                            <h2>江湖资讯与深度解析</h2>
+                        </div>
+                        <div class="content-list">
+                            <article class="content-item">
+                                <div class="content-thumb">
+                                    <img src="https://picsum.photos/seed/wuxia_history/200/150" alt="江湖历史">
+                                </div>
+                                <div class="content-details">
+                                    <h3>细雨楼的兴衰史：从江南一隅到武林巨擘</h3>
+                                    <p>细雨楼是如何在移花宫与恶人谷的夹缝中生存并壮大的？本文将详细梳理细雨楼的关键转折点。</p>
+                                    <span class="tag">历史</span>
+                                    <span class="tag">江湖</span>
+                                </div>
+                            </article>
+
+                            <article class="content-item">
+                                <div class="content-thumb">
+                                    <img src="https://picsum.photos/seed/weapon/200/150" alt="兵器谱">
+                                </div>
+                                <div class="content-details">
+                                    <h3>细雨楼兵器谱排名：谁才是第一神兵？</h3>
+                                    <p>细雨楼高手众多，每人手中的兵器都有其独特的来历与威力。揭秘细雨楼众人的成名兵器。</p>
+                                    <span class="tag">兵器</span>
+                                    <span class="tag">攻略</span>
+                                </div>
+                            </article>
+
+                            <article class="content-item">
+                                <div class="content-thumb">
+                                    <img src="https://picsum.photos/seed/love/200/150" alt="情感线">
+                                </div>
+                                <div class="content-details">
+                                    <h3>李沉舟与苏樱：武侠史上最动人的爱情之一</h3>
+                                    <p>从初识到相知，再到生死与共，细雨楼主与主母的感情线是如何交织出江湖中最美的篇章？</p>
+                                    <span class="tag">情感</span>
+                                    <span class="tag">人物</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="sidebar">
+                        <h3>热门话题</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="#">细雨楼武功秘籍解析</a></li>
+                            <li><a href="#">李沉舟断臂之谜</a></li>
+                            <li><a href="#">江南七怪与细雨楼</a></li>
+                            <li><a href="#">经典战役回顾：细雨楼之战</a></li>
+                            <li><a href="#">同人创作征集令</a></li>
+                        </ul>
+
+                        <h3 style="margin-top: 30px;">推荐阅读</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="#">《绝代双骄》原著小说导读</a></li>
+                            <li><a href="#">古龙武侠世界中的女性角色</a></li>
+                            <li><a href="#">如何理解细雨楼的“义”字？</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community / FAQ Section -->
+        <section id="community" style="background-color: #e9ecef;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>侠友问答与社区</h2>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <details style="background: white; padding: 15px; margin-bottom: 10px; border-radius: 4px; cursor: pointer;">
+                        <summary style="font-weight: bold; color: var(--primary-color);">细雨楼和移花宫是死敌吗？</summary>
+                        <p style="margin-top: 10px; color: var(--text-light);">两者在早期确实有多次冲突，但细雨楼更倾向于维护江南的和平与秩序，并非单纯的依附或敌对关系。随着剧情发展，双方的关系错综复杂。</p>
+                    </details>
+                    <details style="background: white; padding: 15px; margin-bottom: 10px; border-radius: 4px; cursor: pointer;">
+                        <summary style="font-weight: bold; color: var(--primary-color);">细雨楼最强的武功是什么？</summary>
+                        <p style="margin-top: 10px; color: var(--text-light);">细雨楼武功多样，楼主李沉舟的“移花接木”与“碎星掌”最为知名，但楼中其他高手如王怜花等也各有所长，很难说有绝对的最强。</p>
+                    </details>
+                    <details style="background: white; padding: 15px; margin-bottom: 10px; border-radius: 4px; cursor: pointer;">
+                        <summary style="font-weight: bold; color: var(--primary-color);">在哪里可以找到更多关于细雨楼的作品？</summary>
+                        <p style="margin-top: 10px; color: var(--text-light);">除了原著小说，我们社区也收录了大量同人小说、插画和二次创作，欢迎加入讨论。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于细雨楼</h4>
+                    <p style="font-size: 0.9rem; color: #ccc; line-height: 1.8;">
+                        这是一个专注于《绝代双骄》中细雨楼这一经典武侠组织的文化展示平台。致力于还原经典，探讨人物，分享同人创作。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#about">细雨楼简介</a></li>
+                        <li><a href="#characters">核心人物</a></li>
+                        <li><a href="#articles">江湖资讯</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">绝代双骄 Wiki</a></li>
+                        <li><a href="#">古龙纪念馆</a></li>
+                        <li><a href="#">武侠文学网</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 绝代双骄细雨楼文化展示站. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
