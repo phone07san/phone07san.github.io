@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="暗黑破坏神2死灵法师加点指南，提供经典召唤流、骨系施法流及毒系BD的技能分配建议、属性点与装备推荐，助你打造最强亡灵大军。">
+    <meta name="keywords" content="暗黑破坏神2死灵法师加点, D2死灵加点, 暗黑2死灵BD, 暗黑2召唤流, 暗黑2骨系加点">
+    <title>暗黑破坏神2死灵法师加点-经典BD流派、属性分配与装备推荐指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: #16161a;
+            --bg-card-hover: #1f1f26;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-gold: #d4af37;
+            --accent-purple: #9d4edd;
+            --accent-red: #ff4d4d;
+            --border-color: #333;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-gold);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(10, 10, 12, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-purple);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(157, 78, 221, 0.1) 0%, rgba(10, 10, 12, 0) 100%);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(157, 78, 221, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #d4af37, #9d4edd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--accent-gold);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Core Concepts */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            padding-left: 16px;
+            border-left: 4px solid var(--accent-purple);
+            display: flex;
+            align-items: center;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .concept-card {
+            background-color: var(--bg-card);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-purple);
+        }
+
+        .concept-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .concept-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Build Guides */
+        .build-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .build-sidebar {
+            grid-column: span 3;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .build-content {
+            grid-column: span 9;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .build-card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .build-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .build-header h2 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+        }
+
+        .build-type {
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            background-color: rgba(157, 78, 221, 0.2);
+            color: var(--accent-purple);
+            font-weight: 600;
+        }
+
+        .build-body {
+            padding: 24px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .highlight-box {
+            background-color: rgba(10, 10, 12, 0.5);
+            border-left: 3px solid var(--accent-red);
+            padding: 16px;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        /* Attribute Allocation */
+        .attribute-section {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .attr-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .attr-table th, .attr-table td {
+            text-align: left;
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .attr-table th {
+            color: var(--accent-purple);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .attr-table td {
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background-color: var(--bg-card-hover);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-item.active .faq-question::before {
+            content: "+";
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050507;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+            }
+
+            nav ul {
+                gap: 16px;
+                margin-top: 12px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .build-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .build-sidebar {
+                grid-column: span 1;
+            }
+
+            .build-content {
+                grid-column: span 1;
+            }
+
+            .attr-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">
+            <span>🧟</span> D2<span>死灵法师加点</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#core" class="active">核心概念</a></li>
+                <li><a href="#builds">加点流派</a></li>
+                <li><a href="#attributes">属性分配</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>暗黑破坏神2死灵法师加点指南</h1>
+        <p>掌握召唤、骨系与毒系的技能树分配，合理规划属性点与装备，打造你的不朽亡灵军团。</p>
+        <div class="hero-tags">
+            <span class="tag">召唤系</span>
+            <span class="tag">骨系施法</span>
+            <span class="tag">毒系</span>
+            <span class="tag">双热/钢背</span>
+        </div>
+    </section>
+
+    <!-- Core Concepts -->
+    <section id="core">
+        <h2 class="section-title">核心概念解析</h2>
+        <div class="concept-grid">
+            <article class="concept-card">
+                <h3>召唤系</h3>
+                <p>通过复活骷髅和僵尸构建物理防线，依靠石魔提供抗性减益和辅助技能。核心在于提升骷髅数量、防御力及石魔的技能等级。</p>
+            </article>
+            <article class="concept-card">
+                <h3>骨系施法</h3>
+                <p>利用白骨装甲、骨架箭和尸体爆炸进行远程输出。主要依赖法力值，需要高法力恢复和法力技能加成，适合单刷和竞技场。</p>
+            </article>
+            <article class="concept-card">
+                <h3>毒系</h3>
+                <p>利用毒新星和剧毒新星对大范围敌人造成持续伤害。需要关注毒素抗性，通常搭配高伤害装备进行爆发输出。</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Build Guides -->
+    <section id="builds">
+        <h2 class="section-title">主流加点流派推荐</h2>
+        <div class="build-grid">
+            <!-- Sidebar Navigation for Builds -->
+            <aside class="build-sidebar">
+                <nav style="padding: 20px;">
+                    <ul style="display: flex; flex-direction: column; gap: 10px;">
+                        <li><a href="#build-skele" style="color: var(--accent-purple); font-weight: bold;">召唤尸爆流</a></li>
+                        <li><a href="#build-bone" style="color: var(--text-muted);">纯骨系</a></li>
+                        <li><a href="#build-poison" style="color: var(--text-muted);">剧毒新星</a></li>
+                        <li><a href="#build-barb" style="color: var(--text-muted);">钢背熊/双热</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <div class="build-content">
+                <!-- Build 1: Summoner -->
+                <article id="build-skele" class="build-card">
+                    <div class="build-header">
+                        <h2>召唤尸爆流 (尸爆召唤)</h2>
+                        <span class="build-type">PvE / 单刷</span>
+                    </div>
+                    <div class="build-body">
+                        <p style="margin-bottom: 20px; color: var(--text-muted);">这是死灵法师最经典的玩法，依靠召唤物吸引仇恨，利用尸体爆炸造成大量伤害。</p>
+                        
+                        <h4 style="color: var(--accent-gold); margin-bottom: 12px;">技能加点顺序</h4>
+                        <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 20px; color: var(--text-main);">
+                            <li><strong>骷髅复活：</strong> 1级，确保开局有骷髅。</li>
+                            <li><strong>骷髅法师：</strong> 20级，提升召唤物数量和法力。</li>
+                            <li><strong>骨盾：</strong> 20级，提供极高的物理防御。</li>
+                            <li><strong>召唤石魔：</strong> 20级，推荐使用力量/敏捷石魔。</li>
+                            <li><strong>尸体爆炸：</strong> 20级，核心输出技能。</li>
+                            <li><strong>剧毒新星：</strong> 1级（仅用于解诅咒）。</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <strong>加点建议：</strong> 如果在游戏中，优先点满骷髅法师和尸体爆炸。后期可根据装备情况适当投入剧毒新星或其他技能。
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Build 2: Bone Sorceress -->
+                <article id="build-bone" class="build-card">
+                    <div class="build-header">
+                        <h2>纯骨系 (Bone Sorceress)</h2>
+                        <span class="build-type">PvP / 速刷</span>
+                    </div>
+                    <div class="build-body">
+                        <p style="margin-bottom: 20px; color: var(--text-muted);">放弃召唤，专注于白骨装甲、骨架箭和尸体爆炸，拥有极高的生存能力和远程爆发。</p>
+                        
+                        <div class="stat-row">
+                            <span class="stat-label">白骨装甲</span>
+                            <span class="stat-value">20级</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">骨架箭</span>
+                            <span class="stat-value">20级</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">白骨之魂</span>
+                            <span class="stat-value">20级</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">尸体爆炸</span>
+                            <span class="stat-value">20级</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">剧毒新星</span>
+                            <span class="stat-value">1级</span>
+                        </div>
+
+                        <div class="highlight-box">
+                            <strong>特点：</strong> 依靠白骨之魂进行远程风筝，尸体爆炸清理群怪。需要大量法力技能加成装备。
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Build 3: Poison Nova -->
+                <article id="build-poison" class="build-card">
+                    <div class="build-header">
+                        <h2>剧毒新星 (Poison Nova)</h2>
+                        <span class="build-type">PvP / 群体控制</span>
+                    </div>
+                    <div class="build-body">
+                        <p style="margin-bottom: 20px; color: var(--text-muted);">利用剧毒新星的高伤害范围和控制效果，对大范围敌人造成持续毒素伤害。</p>
+                        
+                        <div class="stat-row">
+                            <span class="stat-label">剧毒新星</span>
+                            <span class="stat-value">20级</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">剧毒新星等级</span>
+                            <span class="stat-value">20级</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">剧毒掌握</span>
+                            <span class="stat-value">20级</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">剧毒之墙</span>
+                            <span class="stat-value">1级</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">剧毒新星等级</span>
+                            <span class="stat-value">1级</span>
+                        </div>
+
+                        <div class="highlight-box">
+                            <strong>注意：</strong> 对抗高抗性敌人效果受限，需配合降低毒素抗性的装备。
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attribute Allocation -->
+    <section id="attributes">
+        <h2 class="section-title">属性点分配策略</h2>
+        <div class="attribute-section">
+            <p style="margin-bottom: 20px;">属性点的分配取决于你的加点流派和装备情况，以下是通用原则：</p>
+            <table class="attr-table">
+                <tbody>
+                    <tr>
+                        <th>力量</th>
+                        <td>穿戴高防御装备所需。如果装备提供大量力量，可少加或不加。对于召唤流，通常需要足够的点数来穿高防御甲。</td>
+                    </tr>
+                    <tr>
+                        <th>敏捷</th>
+                        <td>穿戴高敏捷装备所需。对于骨系和毒系，敏捷主要用于提升格挡率（如使用钢铁之岸盾）。对于召唤系，敏捷主要用于穿高敏捷甲。</td>
+                    </tr>
+                    <tr>
+                        <th>体质</th>
+                        <td>提升生命值。对于召唤流，体质能大幅提升召唤物的生命值上限，是核心属性。对于骨系和毒系，体质提供生存保障。</td>
+                    </tr>
+                    <tr>
+                        <th>能量</th>
+                        <td>提升法力值。对于骨系施法流，能量是必不可少的属性，通常通过装备（如精神盾）来平衡法力与生命。</td>
+                    </tr>
+                    <tr>
+                        <th>剩余点数</th>
+                        <td>全部加在体质上，确保生存能力。对于召唤流，体质能显著提升骷髅和僵尸的生命值。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <h2 class="section-title">常见问题 (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">召唤流前期加点应该优先哪个技能？</div>
+            <div class="faq-answer">
+                前期必须优先点满“骷髅复活”和“骨盾”。骷髅提供输出和仇恨，骨盾提供生存。其次点“骷髅法师”增加数量。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">骨系死灵法师为什么不能点召唤技能？</div>
+            <div class="faq-answer">
+                骨系死灵法师专注于技能加成。虽然理论上可以点一点召唤技能，但会分散宝贵的技能点，导致白骨之魂和尸体爆炸等级过低，严重影响输出能力。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">尸爆流需要多少级尸体爆炸才能刷到噩梦难度巴尔？</div>
+            <div class="faq-answer">
+                通常建议尸体爆炸等级达到20级，配合高等级的召唤物和适当的装备，可以较为轻松地通过噩梦难度。如果在困难难度，等级稍低也是可行的，但需要更多技巧。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">毒系死灵法师的弱点是什么？</div>
+            <div class="faq-answer">
+                毒系死灵法师最大的弱点是抗性。许多高等级怪物拥有极高的毒素抗性，导致剧毒新星伤害大幅降低。因此，装备中带有降低毒素抗性的属性非常重要。
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2023 暗黑破坏神2死灵法师加点指南 - 汇聚经典游戏攻略与数据</p>
+    <p>本页面仅供游戏参考，所有游戏商标归 Blizzard Entertainment 所有。</p>
+</footer>
+
+<script>
+    // FAQ Toggle Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Offset for sticky header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
