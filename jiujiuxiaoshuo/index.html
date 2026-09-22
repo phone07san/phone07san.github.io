@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="久久小说免费下载 - 提供海量正版小说在线阅读、TXT格式下载及APP安装服务，涵盖玄幻、言情、都市、历史等热门题材，支持离线阅读。">
+    <meta name="keywords" content="久久小说免费下载,小说下载,小说阅读,免费小说,TXT小说,电子书下载">
+    <title>久久小说免费下载 - 正版电子书资源与在线阅读平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f5f7fa;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #e1e4e8;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: #357abd;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f2ff 0%, #f0f9ff 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-box button:hover {
+            background: #357abd;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid System */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /* Book Card */
+        .book-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+            border-color: var(--primary-color);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 260px;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-info {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+
+        .book-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .book-tags span {
+            display: inline-block;
+            font-size: 11px;
+            padding: 2px 8px;
+            background: #f0f7ff;
+            color: var(--primary-color);
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .book-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-sm {
+            flex: 1;
+            padding: 6px 0;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-item {
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .category-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--secondary-color);
+            padding: 60px 20px;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 20px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-info {
+            color: var(--text-light);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 15px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .grid-layout {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                flex-direction: column;
+                border-radius: 8px;
+            }
+            
+            .search-box button {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>久久小说</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#" class="active">首页</a>
+            <a href="#">玄幻</a>
+            <a href="#">都市</a>
+            <a href="#">历史</a>
+            <a href="#">科幻</a>
+            <a href="#">榜单</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn btn-outline">登录</a>
+            <a href="#" class="btn btn-primary">注册</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>海量正版小说，免费在线阅读与下载</h1>
+            <p>收录超过百万本精选小说，支持TXT格式导出，随时随地畅读精彩故事。</p>
+            <form class="search-box" onsubmit="event.preventDefault();">
+                <input type="text" placeholder="搜索书名、作者或ISBN...">
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Category Navigation -->
+        <section class="category-grid">
+            <div class="category-item">
+                <span class="category-icon">⚔️</span>
+                <div class="category-name">玄幻奇幻</div>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🏙️</span>
+                <div class="category-name">都市职场</div>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">📜</span>
+                <div class="category-name">历史军事</div>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🚀</span>
+                <div class="category-name">科幻未来</div>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">💘</span>
+                <div class="category-name">言情甜宠</div>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">👻</span>
+                <div class="category-name">悬疑推理</div>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">🎎</span>
+                <div class="category-name">古风仙侠</div>
+            </div>
+            <div class="category-item">
+                <span class="category-icon">📚</span>
+                <div class="category-name">文学名著</div>
+            </div>
+        </section>
+
+        <!-- Hot Updates -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">热门更新</h2>
+                <a href="#" class="view-all">查看更多 &gt;</a>
+            </div>
+            <div class="grid-layout">
+                <!-- Book 1 -->
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel1/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title"><a href="#">大奉打更人：神魔降临</a></h3>
+                        <div class="book-meta">作者：卖报小郎君 | 分类：玄幻</div>
+                        <div class="book-tags">
+                            <span>连载中</span>
+                            <span>热门</span>
+                        </div>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">立即阅读</a>
+                            <a href="#" class="btn btn-outline btn-sm">下载TXT</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 2 -->
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel2/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title"><a href="#">我在异界当神豪的日子</a></h3>
+                        <div class="book-meta">作者：爱吃肉包 | 分类：都市</div>
+                        <div class="book-tags">
+                            <span>完结</span>
+                            <span>爽文</span>
+                        </div>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">立即阅读</a>
+                            <a href="#" class="btn btn-outline btn-sm">下载TXT</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 3 -->
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel3/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title"><a href="#">九星霸体诀：重生归来</a></h3>
+                        <div class="book-meta">作者：龙尘 | 分类：玄幻</div>
+                        <div class="book-tags">
+                            <span>连载中</span>
+                        </div>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">立即阅读</a>
+                            <a href="#" class="btn btn-outline btn-sm">下载TXT</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 4 -->
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel4/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title"><a href="#">寒门状元：从秀才开始逆袭</a></h3>
+                        <div class="book-meta">作者：八百里 | 分类：历史</div>
+                        <div class="book-tags">
+                            <span>完结</span>
+                            <span>历史</span>
+                        </div>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">立即阅读</a>
+                            <a href="#" class="btn btn-outline btn-sm">下载TXT</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Ranking List -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">月票榜</h2>
+                <a href="#" class="view-all">查看更多 &gt;</a>
+            </div>
+            <div class="grid-layout">
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel5/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title"><a href="#">深空彼岸</a></h3>
+                        <div class="book-meta">作者：辰东 | 分类：科幻</div>
+                        <div class="book-tags">
+                            <span>科幻</span>
+                        </div>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">阅读</a>
+                            <a href="#" class="btn btn-outline btn-sm">下载</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel6/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title"><a href="#">圣墟</a></h3>
+                        <div class="book-meta">作者：辰东 | 分类：玄幻</div>
+                        <div class="book-tags">
+                            <span>玄幻</span>
+                        </div>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">阅读</a>
+                            <a href="#" class="btn btn-outline btn-sm">下载</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel7/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title"><a href="#">道诡异仙</a></h3>
+                        <div class="book-meta">作者：狐尾的笔 | 分类：悬疑</div>
+                        <div class="book-tags">
+                            <span>悬疑</span>
+                        </div>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">阅读</a>
+                            <a href="#" class="btn btn-outline btn-sm">下载</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <a href="#" class="book-cover">
+                        <img src="https://picsum.photos/seed/novel8/300/400" alt="小说封面">
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title"><a href="#">道祖</a></h3>
+                        <div class="book-meta">作者：卷土 | 分类：玄幻</div>
+                        <div class="book-tags">
+                            <span>玄幻</span>
+                        </div>
+                        <div class="book-actions">
+                            <a href="#" class="btn btn-primary btn-sm">阅读</a>
+                            <a href="#" class="btn btn-outline btn-sm">下载</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Download Guide -->
+        <section class="content-section" style="background: #f8f9fa; padding: 30px; border-radius: 8px;">
+            <div class="section-header">
+                <h2 class="section-title">下载与阅读指南</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div>
+                    <h3 style="margin-bottom: 10px; font-size: 18px;">1. 在线阅读</h3>
+                    <p style="color: #666; font-size: 14px;">直接点击小说封面上的“立即阅读”按钮，即可在网页端流畅阅读，支持夜间模式与翻页设置。</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 10px; font-size: 18px;">2. 下载TXT</h3>
+                    <p style="color: #666; font-size: 14px;">点击“下载TXT”按钮，系统将生成纯文本文件，无需安装客户端，方便在手机或电脑上离线阅读。</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 10px; font-size: 18px;">3. 阅读器推荐</h3>
+                    <p style="color: #666; font-size: 14px;">下载的TXT文件可使用多看阅读、静读天下等第三方阅读软件打开，获得更好的排版体验。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">极速更新</h3>
+                <p class="feature-desc">第一时间同步各大正版平台更新，不错过任何精彩章节。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💾</div>
+                <h3 class="feature-title">安全下载</h3>
+                <p class="feature-desc">所有TXT文件均经过格式校验，无病毒、无广告插件。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">全端支持</h3>
+                <p class="feature-desc">PC网页版、移动端适配，随时随地享受阅读乐趣。</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <a href="#" class="logo" style="margin-bottom: 15px; display: inline-block;">
+                <span>久久小说</span>
+            </a>
+            <p class="footer-info">
+                久久小说致力于为用户提供最优质的免费小说阅读服务。我们精选各类热门题材，涵盖玄幻、都市、历史、科幻等领域，让每一位读者都能找到心仪的作品。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>快速导航</h4>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">排行榜</a></li>
+                <li><a href="#">分类浏览</a></li>
+                <li><a href="#">作者专区</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>帮助中心</h4>
+            <ul>
+                <li><a href="#">常见问题</a></li>
+                <li><a href="#">下载说明</a></li>
+                <li><a href="#">版权声明</a></li>
+                <li><a href="#">联系客服</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>关注我们</h4>
+            <ul>
+                <li><a href="#">微信公众号</a></li>
+                <li><a href="#">新浪微博</a></li>
+                <li><a href="#">QQ交流群</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 久久小说免费下载平台. All Rights Reserved. 本站内容仅供学习交流使用，请支持正版书籍。
+    </div>
+</footer>
+
+</body>
+                          </html>
