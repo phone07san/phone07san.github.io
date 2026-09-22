@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豪门之童养媳 - 沉浸式阅读与情感故事精选</title>
+    <meta name="description" content="豪门之童养媳 - 深度解析热门豪门言情故事，提供在线阅读体验、角色分析及情感剧情走向预测，专为喜爱豪门题材的读者打造的沉浸式故事社区。">
+    <meta name="keywords" content="豪门之童养媳, 豪门言情, 童养媳小说, 网络漫画, 在线阅读, 虐恋情深">
+    <style>
+        :root {
+            --primary-color: #c0392b;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/mansion/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #a93226;
+            transform: translateY(-2px);
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -17px;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .view-all {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid System */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: var(--text-main);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-outline {
+            flex: 1;
+            text-align: center;
+            padding: 8px 0;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Featured Section (Side by Side) */
+        .featured-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .featured-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+        }
+
+        .featured-img {
+            width: 40%;
+            object-fit: cover;
+        }
+
+        .featured-info {
+            padding: 30px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Ranking List */
+        .ranking-list {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .rank-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 25px;
+            height: 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background-color: #f1c40f; }
+        .rank-item:nth-child(2) .rank-num { background-color: #bdc3c7; }
+        .rank-item:nth-child(3) .rank-num { background-color: #d35400; }
+
+        .rank-info h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .rank-info p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Filter Tabs */
+        .tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .tab {
+            padding: 8px 20px;
+            background: white;
+            border-radius: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid #eee;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .tab.active, .tab:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .featured-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-card {
+                flex-direction: column;
+            }
+
+            .featured-img {
+                width: 100%;
+                height: 250px;
+            }
+
+            .featured-info {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">情感<span>阁</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门连载</a></li>
+                    <li><a href="#">完结精品</a></li>
+                    <li><a href="#">榜单排行</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>豪门之童养媳</h1>
+                <p>深陷家族恩怨与豪门斗争的禁忌之恋，看她如何在权谋与爱恨之间寻找自我。</p>
+                <a href="#latest" class="btn-primary">立即阅读</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Filter Tabs -->
+            <div class="tabs">
+                <div class="tab active">全部</div>
+                <div class="tab">情感纠葛</div>
+                <div class="tab">复仇逆袭</div>
+                <div class="tab">先婚后爱</div>
+                <div class="tab">虐恋情深</div>
+            </div>
+
+            <!-- Featured Section -->
+            <section class="featured-layout" id="latest">
+                <article class="featured-card">
+                    <img src="https://picsum.photos/seed/romance1/600/400" alt="豪门之童养媳封面" class="featured-img">
+                    <div class="featured-info">
+                        <span style="color: var(--primary-color); font-weight: bold; font-size: 0.9rem;">正在热播</span>
+                        <h3>豪门之童养媳：暗夜归来的新娘</h3>
+                        <p style="color: #666; margin: 10px 0;">五年前，她是顾家被迫送入沈家的童养媳，受尽冷眼。五年后，她以商业新贵的身份强势归来，却意外发现当年的真相远比想象中残酷...</p>
+                        <div class="card-meta">
+                            <span>作者：墨染流年</span>
+                            <span>更新至：第 128 章</span>
+                        </div>
+                        <a href="#" class="btn-outline" style="display: inline-block; width: auto; text-align: center;">阅读最新章节</a>
+                    </div>
+                </article>
+
+                <aside class="ranking-list">
+                    <div class="section-header" style="border: none; padding: 0; margin-bottom: 15px;">
+                        <h3 class="section-title" style="font-size: 1.2rem;">热门排行</h3>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">1</div>
+                        <div class="rank-info">
+                            <h4>豪门囚爱：总裁的替身前妻</h4>
+                            <p>9.8分</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">2</div>
+                        <div class="rank-info">
+                            <h4>童养媳逆袭：顾少请自重</h4>
+                            <p>9.6分</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">3</div>
+                        <div class="rank-info">
+                            <h4>豪门旧梦：前妻归来</h4>
+                            <p>9.5分</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">4</div>
+                        <div class="rank-info">
+                            <h4>契约童养媳：总裁的掌心宠</h4>
+                            <p>9.4分</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-num">5</div>
+                        <div class="rank-info">
+                            <h4>豪门弃女：重生之凰途</h4>
+                            <p>9.3分</p>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+
+            <!-- Latest Updates Grid -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">最新更新</h2>
+                    <a href="#" class="view-all">查看更多 ></a>
+                </div>
+                <div class="grid-3">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">情感</span>
+                            <img src="https://picsum.photos/seed/love1/400/500" alt="漫画封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">豪门之童养媳：隐婚蜜爱</h3>
+                            <div class="card-meta">
+                                <span>连载中</span>
+                                <span>2小时前</span>
+                            </div>
+                            <p class="card-desc">原本以为只是简单的契约婚姻，没想到他却对她动了真情。当童养媳的身份曝光，他是否会为了她与整个豪门为敌？</p>
+                            <div class="card-footer">
+                                <a href="#" class="btn-outline">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">虐恋</span>
+                            <img src="https://picsum.photos/seed/love2/400/500" alt="漫画封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">豪门之童养媳：错爱成瘾</h3>
+                            <div class="card-meta">
+                                <span>连载中</span>
+                                <span>5小时前</span>
+                            </div>
+                            <p class="card-desc">她爱了他整整十年，换来的却是他的冷漠与背叛。当她决绝离开，他才惊觉早已离不开她。</p>
+                            <div class="card-footer">
+                                <a href="#" class="btn-outline">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">复仇</span>
+                            <img src="https://picsum.photos/seed/love3/400/500" alt="漫画封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">豪门之童养媳：绝地反击</h3>
+                            <div class="card-meta">
+                                <span>连载中</span>
+                                <span>昨天</span>
+                            </div>
+                            <p class="card-desc">为了复仇，她甘愿成为童养媳潜伏在仇人身边。这一路荆棘丛生，她能否成功揭开当年的血色真相？</p>
+                            <div class="card-footer">
+                                <a href="#" class="btn-outline">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">甜宠</span>
+                            <img src="https://picsum.photos/seed/love4/400/500" alt="漫画封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">豪门之童养媳：总裁的专属</h3>
+                            <div class="card-meta">
+                                <span>连载中</span>
+                                <span>昨天</span>
+                            </div>
+                            <p class="card-desc">“从今往后，你是我的。”一句话，将她圈入怀中。他是高高在上的总裁，她是卑微的童养媳，这段身份悬殊的爱恋能否修成正果？</p>
+                            <div class="card-footer">
+                                <a href="#" class="btn-outline">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">剧情</span>
+                            <img src="https://picsum.photos/seed/love5/400/500" alt="漫画封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">豪门之童养媳：迷雾重重</h3>
+                            <div class="card-meta">
+                                <span>连载中</span>
+                                <span>3天前</span>
+                            </div>
+                            <p class="card-desc">豪门深似海，童养媳的生存之路步步惊心。在这座冰冷的别墅里，她能否找到属于自己的温暖角落？</p>
+                            <div class="card-footer">
+                                <a href="#" class="btn-outline">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="card">
+                        <div class="card-image">
+                            <span class="card-badge">完结</span>
+                            <img src="https://picsum.photos/seed/love6/400/500" alt="漫画封面">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">豪门之童养媳：尘埃落定</h3>
+                            <div class="card-meta">
+                                <span>已完结</span>
+                                <span>1周前</span>
+                            </div>
+                            <p class="card-desc">所有的爱恨情仇终将落幕，当繁华落尽，他们是否还能回到最初的起点？</p>
+                            <div class="card-footer">
+                                <a href="#" class="btn-outline">阅读</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Introduction Section -->
+            <section style="margin-top: 60px; background: white; padding: 40px; border-radius: 8px; box-shadow: var(--shadow);">
+                <div class="section-header">
+                    <h2 class="section-title">关于“豪门之童养媳”题材</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                    <div>
+                        <p style="margin-bottom: 15px; color: #555;">
+                            “豪门之童养媳”是近年来在网络文学和漫画平台上非常火爆的一个题材。它通常以豪门世家的背景为舞台，讲述女主角作为“童养媳”身份进入男主家族，从最初的身份卑微、受尽欺凌，到逐渐掌握家族命运、实现自我价值的故事。
+                        </p>
+                        <p style="margin-bottom: 15px; color: #555;">
+                            这类故事的核心看点往往在于<strong>身份的落差</strong>与<strong>情感的逆袭</strong>。读者在阅读过程中，既能体验到豪门生活的奢华与残酷，又能跟随主角经历从忍辱负重到反击打脸的爽快感。
+                        </p>
+                        <p style="color: #555;">
+                            除了爽文元素，优秀的作品还会深入探讨女性在传统家庭结构中的挣扎与觉醒，以及真爱是否能够跨越阶级与身份的鸿沟。
+                        </p>
+                    </div>
+                    <div style="background: #f4f4f4; padding: 20px; border-radius: 8px;">
+                        <h4 style="margin-bottom: 10px; color: var(--secondary-color);">常见看点</h4>
+                        <ul style="color: #666; font-size: 0.9rem; line-height: 2;">
+                            <li>✦ 先婚后爱：从互相厌恶到相濡以沫</li>
+                            <li>✦ 复仇逆袭：揭露当年被抛弃的真相</li>
+                            <li>✦ 虐恋情深：误会与分离带来的情感冲击</li>
+                            <li>✦ 甜宠日常：男主对女主独宠无下限</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于情感阁</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        情感阁致力于为读者提供最优质的豪门言情、童养媳题材故事阅读体验。我们汇聚全网热门作品，支持在线阅读、章节订阅及社区互动。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">首页推荐</a></li>
+                        <li><a href="#">最新章节</a></li>
+                        <li><a href="#">排行榜单</a></li>
+                        <li><a href="#">作者专区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">豪门恩怨</a></li>
+                        <li><a href="#">童养媳</a></li>
+                        <li><a href="#">总裁文</a></li>
+                        <li><a href="#">复仇爽文</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>合作建议：bd@qinggan.com</li>
+                        <li>侵权举报：support@qinggan.com</li>
+                        <li>客服热线：400-123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 情感阁 版权所有 | 豪门之童养媳阅读平台</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                  </html>
